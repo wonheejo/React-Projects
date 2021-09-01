@@ -8,7 +8,6 @@ const CoinList = () => {
   const{watchList, deleteCoin} = useContext(WatchListContext);
   const[isLoading, setIsLoading] = useState(false);
 
-  console.log(watchList)
   // Below is used to call on the api for receiving the data for the coins
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +39,7 @@ const CoinList = () => {
     }
     return (
       <ul className='coinlist list-group mt-2'>
-         {coins.map(coin => {
+         {coins.map((coin) => {
            return <Coin key={coin.id} coin={coin} deleteCoin={deleteCoin}/>
          })}
       </ul>
