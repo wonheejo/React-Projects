@@ -78,6 +78,7 @@ export const CoinDetails = () => {
         <div>Loading....</div>
       )
     }
+    
     return(
       <div className='coinlist'>
         <HistoryChart data={coinData} />

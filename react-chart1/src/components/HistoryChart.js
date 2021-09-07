@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Chart from 'chart.js/auto';
 import { historyOptions } from '../chartConfigs/chartConfigs';
 import 'chartjs-adapter-date-fns';
@@ -86,9 +87,23 @@ const renderPrice = () => {
     }
   }
 
+  const BackButton = () => {
+    let history = useHistory();
+    return (
+      <>
+        <button 
+          onClick={ () => history.goBack()}
+          className='btn btn-outline-secondary btm-sm'>Back</button>
+      </>
+    )
+  }
+
   return (
     <div className='bg-white border mt-2 rounded p-3'>
       <div>{renderPrice()}</div>
+      <div>
+        {BackButton()}
+      </div>
 
       <div>
         <canvas ref={chartRef} id='mychart' width={250} height={250}></canvas>
